@@ -6,6 +6,7 @@ import oefeningen_oop.oefening1.measurements.Weight;
 import java.util.Objects;
 
 public abstract class Animal {
+    public static final int SIZE_TO_WEIGHT_RATIO = 10;
     private final Weight weight;
     private final Size size;
 
@@ -23,7 +24,7 @@ public abstract class Animal {
     }
 
     public boolean isAnimalToHeavy() {
-        if (weight.getWeight() > size.getSize() - 10) {
+        if (weight.getWeight() > size.getSize() - SIZE_TO_WEIGHT_RATIO) {
             return true;
         }
         return false;
