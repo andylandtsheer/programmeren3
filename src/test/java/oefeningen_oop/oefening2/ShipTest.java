@@ -49,4 +49,26 @@ class ShipTest {
 
         Assertions.assertThat(ship.getContent()).isEqualTo("7500 kg and 9 places taken");
     }
+
+    @Test
+    void testMaxWeight() {
+        Ship ship = new Ship();
+        for (int i = 0; i < 96  ; i++) {
+            ship.addVehicle(new Car());
+        }
+
+        Assertions.assertThatThrownBy(()-> ship.addVehicle(new Car())).hasMessage("Ship is full");
+    }
+
+    @Test
+    void testMaxAmountOfPlaces() {
+        Ship ship = new Ship();
+        for (int i = 0; i < 50  ; i++) {
+            ship.addVehicle(new Van());
+        }
+
+        Assertions.assertThatThrownBy(()-> ship.addVehicle(new Car())).hasMessage("Ship is full");
+    }
+
+
 }
